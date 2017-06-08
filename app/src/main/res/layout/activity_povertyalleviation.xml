@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:background="@drawable/function_background">
+
+    <RelativeLayout
+        android:id="@+id/pa_title_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="138dp"
+        android:layout_marginLeft="138dp"
+        android:layout_marginBottom="46dp">
+            <ImageView
+                android:id="@+id/pa_title_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/go_left"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/targeted_poverty_alleviation"
+                android:textSize="36sp"
+                android:textColor="@color/color_white1"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/pa_title_img"
+                android:paddingLeft="10dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pa_content_relative"
+        android:layout_marginRight="138dp"
+        android:layout_marginLeft="138dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:layout_below="@+id/pa_title_relative">
+
+            <ListView
+                android:id="@+id/pa_content_listview"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:background="@color/color_yellow4">
+            </ListView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/pa_content_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_toRightOf="@+id/pa_content_listview">
+            </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/function_background">
+        <com.vunke.ec.view.FlyBorderView
+            android:id="@+id/officeguide_flyborderview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="invisible"/>
+        <RelativeLayout
+            android:id="@+id/officeguide_title_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp"
+            android:layout_marginBottom="58dp">
+                <ImageView
+                    android:id="@+id/officeguide_title_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/go_left"
+                    android:layout_centerVertical="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="36sp"
+                    android:textColor="@color/color_white1"
+                    android:text="@string/officeguide"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/padding_10"
+                    android:layout_toRightOf="@+id/officeguide_title_img"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/officeguide_content_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:layout_below="@+id/officeguide_title_relative">
+
+
+                <app.com.tvrecyclerview.TvRecyclerView
+                    android:id="@+id/officeguide_classify_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:focusable="true"
+                    app:focusScale="1"
+                    android:background="@color/color_orange3"/>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/officeguide_content_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/officeguide_classify_recycler"
+                    android:background="@color/color_orange4">
+                </android.support.v4.view.ViewPager>
+
+        </RelativeLayout>
+</RelativeLayout>

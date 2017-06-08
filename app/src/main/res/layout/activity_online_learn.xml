@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/function_background">
+
+    <RelativeLayout
+        android:id="@+id/onlinelearn_title_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="90dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="50dp"
+        android:focusable="false">
+        <ImageView
+            android:id="@+id/onlinelearn_title_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/go_left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/onlinelearn_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/onlinelearn"
+            android:textSize="36sp"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@id/onlinelearn_title_img"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_white1"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/onlinelearn_content_relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginTop="45dp"
+        android:focusable="false"
+        android:layout_below="@+id/onlinelearn_title_relative"
+        android:layout_above="@+id/onlinelearn_bottom_relative">
+        <com.vunke.ec.view.FlyBorderView
+            android:id="@+id/onlinelearn_flyborderview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="invisible"
+            android:background="@drawable/bg_border1"/>
+
+        <app.com.tvrecyclerview.TvRecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:focusDrawable="@drawable/bg_border4"
+            android:focusable="true"
+            android:id="@+id/onlinelearn_recyclerview2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/onlinelearn_bottom_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:layout_marginTop="26dp"
+        android:focusable="false">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/go_down"/>
+    </RelativeLayout>
+
+</RelativeLayout>

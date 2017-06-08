@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">智慧益阳</string>
+    <string name="party_affairs">党员教育</string>
+    <string name="party_affairs2">党员教育</string>
+    <string name="village_affairs">益村村务</string>
+    <string name="app_data">益村信息</string>
+    <string name="party_affairs_publicity">党务公开</string>
+    <string name="village_affairs_publicity">村务公开</string>
+    <string name="onlinelearn">在线学习</string>
+    <string name="officeguide">办事指南</string>
+    <string name="officenotice">办事通知</string>
+    <string name="targeted_poverty_alleviation">精准扶贫</string>
+    <string name="content_details">内容详情</string>
+    <string name="pause">暂停</string>
+</resources>

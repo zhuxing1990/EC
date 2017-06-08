@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vunke.ec">
+
+    <!--获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- WindowManger 权限(浮动窗口) -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--读取手机信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".base.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/yicun"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <activity android:name="com.vunke.ec.activity.MainActivity" >
+
+        </activity>
+
+        <activity android:name="com.vunke.ec.activity.HomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.vunke.ec.activity.FunctionActivity">
+
+        </activity>
+
+        <activity android:name="com.vunke.ec.activity.ClassifyActivity" >
+
+        </activity>
+
+        <activity android:name="com.vunke.ec.activity.PartyAffairsPublicityActivity" >
+
+        </activity>
+
+        <activity android:name="com.vunke.ec.activity.OnlineLearnActivity">
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.Function2Activity" >
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.PartyAffairsActivity" >
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.VillageAffairsActivity">
+
+        </activity>
+
+        <activity android:name="com.vunke.ec.activity.OfficeGuideActivity">
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.OffficeNoticeActivity">
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.PovertyAlleviationActivity">
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.DetailsActivity">
+
+        </activity>
+        <activity android:name=".activity.VideoPlayActivity">
+
+        </activity>
+
+        <service android:name="com.vunke.ec.service.killSelfService">
+        </service>
+    </application>
+
+</manifest>

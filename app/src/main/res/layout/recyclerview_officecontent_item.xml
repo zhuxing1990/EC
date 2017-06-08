@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="298dp"
+    android:layout_height="110dp"
+    android:layout_marginLeft="34dp"
+    android:layout_marginRight="34dp"
+    android:gravity="center"
+    android:background="@color/color_orange8"
+    android:focusable="true">
+    <TextView
+        android:id="@+id/officecontent_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:maxEms="5"
+        android:textColor="@color/color_white4"/>
+</RelativeLayout>

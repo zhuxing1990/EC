@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="80dp"
+    android:id="@+id/pa_list_item_layout"
+    android:background="@drawable/relative_pa_item_selector">
+
+        <TextView
+            android:id="@+id/pa_list_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:maxLines="1"
+            android:maxEms="5"
+            android:textColor="@color/color_white5"/>
+</RelativeLayout>
