@@ -12,4 +12,9 @@
     <string name="targeted_poverty_alleviation">精准扶贫</string>
     <string name="content_details">内容详情</string>
     <string name="pause">暂停</string>
+    <string name="government_affairs">政务</string>
+    <string name="yiyang_overview">益阳概况</string>
+    <string name="historical_culture">历史文化</string>
+    <string name="today_style">今日风采</string>
+    <string name="future_development">未来发展</string>
 </resources>

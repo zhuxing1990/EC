@@ -13,7 +13,7 @@
                     android:id="@+id/recycler_partyaffairs_img"
                     android:layout_width="256dp"
                     android:layout_height="180dp"
-                    android:src="@drawable/partyaffairs_view1"/>
+                    />
                 <TextView
                     android:id="@+id/recycler_partyaffairs_time"
                     android:layout_width="match_parent"

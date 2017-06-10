@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_white1"
                 android:textSize="36sp"
-                android:text="@string/app_data"/>
+                />
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/funtion_content_relative1"
@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/function_fc_view1"/>
+                       />
 
                     <TextView
                         android:id="@+id/funtion_fc_text1"
@@ -66,7 +66,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -81,7 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/function_fc_view2"/>
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text2"
                         android:layout_width="match_parent"
@@ -90,7 +89,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -105,7 +103,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/function_fc_view3"/>
+                    />
                     <TextView
                         android:id="@+id/funtion_fc_text3"
                         android:layout_width="match_parent"
@@ -114,7 +112,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -129,7 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/function_fc_view4" />
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text4"
                         android:layout_width="match_parent"
@@ -138,7 +135,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -160,7 +156,7 @@
                         android:id="@+id/funtion_fc_img5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view5"/>
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text5"
                         android:layout_width="match_parent"
@@ -169,7 +165,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -184,7 +179,7 @@
                         android:id="@+id/funtion_fc_img6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view6"/>
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text6"
                         android:layout_width="match_parent"
@@ -193,7 +188,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
                 </RelativeLayout>
@@ -210,7 +204,7 @@
                         android:id="@+id/funtion_fc_img7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view7"/>
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text7"
                         android:layout_width="match_parent"
@@ -219,7 +213,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
 
@@ -235,7 +228,7 @@
                         android:id="@+id/funtion_fc_img8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view8"/>
+                        />
                     <TextView
                         android:id="@+id/funtion_fc_text8"
                         android:layout_width="match_parent"
@@ -244,7 +237,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
 
@@ -260,7 +252,7 @@
                         android:id="@+id/funtion_fc_img9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view9"/>
+                       />
                     <TextView
                         android:id="@+id/funtion_fc_text9"
                         android:layout_width="match_parent"
@@ -269,7 +261,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
 
@@ -285,7 +276,7 @@
                         android:id="@+id/funtion_fc_img10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/function_fc_view10"/>
+                       />
                     <TextView
                         android:id="@+id/funtion_fc_text10"
                         android:layout_width="match_parent"
@@ -294,7 +285,6 @@
                         android:gravity="left"
                         android:paddingLeft="10dp"
                         android:textSize="24sp"
-                        android:text="@string/party_affairs_publicity"
                         android:textColor="@color/color_white1"
                         android:layout_alignParentBottom="true"/>
 

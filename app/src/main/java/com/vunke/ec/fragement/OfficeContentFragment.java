@@ -58,7 +58,6 @@ public class OfficeContentFragment extends Fragment {
     }
     private String blockId;
     private TvRecyclerView fragement_officecontent_recycler;
-    private String [] contentArr = {"城市居民基本医疗保险参保服务","职工技能培训申请","企业退休职工的生存认证","职工技能培训申请","城市居民基本医疗保险参保服务","企业退休职工的生存认证","企业退休职工的生存认证","城市居民基本医疗保险参保服务","职工技能培训申请"};
 //    private List<String> mlsit;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fragment_background1">
+
+    <RelativeLayout
+        android:layout_width="940dp"
+        android:layout_height="480dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:clipChildren="false"
+        android:background="@drawable/layout_shape_background">
+            <TextView
+                android:id="@+id/overviewyiyang_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="36sp"
+                android:textColor="@color/color_blue4"
+                android:text="@string/yiyang_overview"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/overviewyiyang_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:textSize="26sp"
+            android:maxLines="9"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier = "1.2"
+            android:textColor="@color/color_blue4"
+            android:ems="16"
+            android:text="   益阳市位于湘中偏北，跨越资水中下游，处沅水、澧水尾闾，环洞庭湖西南，系由雪峰山余脉和湘中丘陵向洞庭湖平原过渡的倾斜地带。全市地形西高东低，成狭长状。地理坐标为东经110°43'02~112°55'48,北纬27°58'38~29°31'42。东西最长距离217公里，南北最宽距离173公里，从地图上看，像一头翘首东望、伏地待跃的雄狮。四邻东与岳阳县、湘阴县为界，东南与宁乡县、望城县接壤，南与涟源市、新化县相连，西与叙浦县、沅陵县交界，西北与桃源县、鼎城区、汉寿县、安乡县毗邻，北与华容县相连。
+
+        市境属亚热带大陆性季风湿润气候，境内阳光充足，雨量充沛，气候温和，具有气温总体偏高、冬暖夏凉明显、降水年年偏丰、7月多雨成灾、日照普遍偏少，春寒阴雨突出等特征。年平均气温16.1℃—16.9℃，日照1348小时—1772小时，无霜期263天—276天，降雨量1230毫米—1700毫米，适合于农作物生长，是一个山青水秀、环境适宜的风景胜地。
+
+        益阳是远近闻名的“小有色金属之乡”。已知的矿床、矿点有140多处，已探明的矿床、矿点40余处，其中中型矿床5处，小型矿床15处，矿点和矿化现象120多处。主要矿藏20多种，锑、钨、钒、石煤的储量占全省第一。主要矿种中，具有工业开采价值的有锰、锑、金、钒、铁、石煤、硫铁矿、磷矿、石灰岩等10多种,其中锰、锑、钒、石煤、硫铁矿、石灰岩储量丰富，开采远景可观。稀有金属分布较多，尚有待勘探、开采。水晶矿、重晶矿、粘土矿、石英砂、萤石、高岭土等非金属矿藏，也有一定储量。此外，山区的石料和湖区的潮土，资源较为丰富，是发展建筑材料工业的重要原料。
+
+        益阳水资源丰富。山丘区有资江南北贯通，平原地带河网纵横、湖泊棋布，水路经洞庭湖外通长江，内联湘、资、沅、澧水道，向有灌溉、航行之利。全市水资源总量为2779亿立方米，其中年均地表径流量约为91亿立方米，平均每亩耕地拥有水量1770多立方米。另外，资水、沅水、澧水和荆江三口每年给我市带来过境容水2200多亿立方米，蕴含丰富的水能发电资源。据测算，仅资江可供发电贮量就达100万千瓦，现因在其上游建了2个水电站（柘溪电站、马迹塘电站），开发量已达50万千瓦。
+
+        益阳野生动物资源，按经济意义和生态地理分布，大致可分两种类型。境内东北部的南县、沅江市和赫山区东部，湖泊众多，河港交织，水草丰茂，盛　产鱼虾和龟、鳖、鳝、螺等小水产。每年秋后，还有大批雁行目、鸻形目候鸟来此觅食越冬。陆栖脊椎动物较常见。境内西南部和中部地域，包括安化县、桃江县、赫山区和资阳区西南部，山丘延绵，森林广布，耕地和居民都较分散，野生动物以哺乳类、爬行类和鸟类居多。主要为斑鸠、野鸡、野兔、野猪、獾、貉和蛇等。全市植物资源有藻类、菌类、苔藓、蕨类、裸子植物和被子植物六大类，广泛分布在山地、平原和水域，直接或间接地被农业利用。
+
+        全市土地质量较好，有林地56.27万公顷，耕地24.54万公顷，水面 13.99万公顷，草地8.2万公顷，湖洲6.53万公顷。滨湖平原由河流冲积而成，土壤肥沃，适宜种植多种作物，是粮、棉、麻、油、糖的主要生产基地，素有“鱼米之乡”的美称。苎麻产量居全国首位，芦苇、黄（红）麻、糖料产量均居全省第一。中部丘陵岗地，土壤多属板页岩风化而成，呈酸性，含养分较高，是南竹、油茶、茶叶、果木等经济林生产区。益阳是全国有名的“竹子之乡”，南竹、茶叶产量居全省第一。西部中低山地，土质相对较差，但适宜多种林木生产，是主要林业生产基地。益阳水域广阔，全市总水面215万亩，可养面积80多万亩，已放养面积72万亩，其中精养面积33万多亩。大通湖面积达12.4万亩，是全省最大的内陆养殖湖泊。全市盛产乌鲤、鳜鱼、大口鲶、优质鲫鱼、优质鲤鱼等名贵鱼和甲鱼、乌龟、河蟹、青虾等特种水产品。
+
+        益阳农业发展得天独厚。全市十大家产品产区中，有不少被定为国家级的商品粮基地、商品棉基地、商品鱼基地、瘦肉型获得基地及综合商品基地。益阳工业已形成纺织、电力、化工、煤炭、机械、电子、建材、冶金、造纸、仪器等34个行业，以麻纺、造纸、食品、电子工业最著特色。主要名优工业产品有橡胶机械、柴油机、编织机、汽车灯泡、三氧化二锑、苎麻产品和肉类仪器等210多种。
+        益阳水陆交通十分便利。长益高速公路、石长铁路、319国道穿越境内，是省会长沙通往大西南的要道。水路经洞庭湖、内通湘、资、沅、澧四水，外达长沙各口岸。湘黔铁路穿越安化县境，洛（洛阳）──湛（湛江）铁路线在益阳设立枢纽站。
+
+        益阳投资环境日臻完善，海关、商检、外运、国际保险、金融、法律等涉外机构均在建立，并努力提供逐步与国际惯例接轨的优质服务。"
+            android:layout_below="@+id/overviewyiyang_title_text"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_toRightOf="@+id/overviewyiyang_details"
+            android:layout_below="@+id/overviewyiyang_title_text">
+            <com.vunke.ec.view.ScaleRecyclerView
+                android:id="@+id/overviewyiyang_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:layout_marginLeft="20dp">
+
+            </com.vunke.ec.view.ScaleRecyclerView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

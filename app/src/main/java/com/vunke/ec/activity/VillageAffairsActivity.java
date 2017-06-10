@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
@@ -44,10 +46,7 @@ public class VillageAffairsActivity extends BaseActivity {
     private TvRecyclerView villageaffairs_tvrecycler;
     private List<Map<String ,Object>> list;
     private Map<String,Object> map;
-    private String[] contentArr = {"益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动","益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动","益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动"};
-    private String [] dataTimeArr = {"2017-5-20","2017-5-21","2017-5-22","2017-5-23","2017-5-24","2017-5-25","2017-5-26","2017-5-27","2017-5-28","2017-5-29","2017-5-30","2017-5-31"};
-    private int[] imgArr = {R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4,R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4,R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4};
-
+    private TextView villageaffairs_title_text;
     private String infoId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +59,7 @@ public class VillageAffairsActivity extends BaseActivity {
 
 //        partyaffairs_recycler = (RecyclerView) findViewById(R.id.partyaffairs_recycler);
         villageaffairs_tvrecycler = (TvRecyclerView) findViewById(R.id.villageaffairs_tvrecycler);
+        villageaffairs_title_text = (TextView) findViewById(R.id.villageaffairs_title_text);
         GridLayoutManager manager = new GridLayoutManager(mcontext, 4);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         villageaffairs_tvrecycler.setLayoutManager(manager);
@@ -136,6 +136,9 @@ public class VillageAffairsActivity extends BaseActivity {
                     super.onAfter(s, e);
                     WorkLog.i(TAG, "onAfter: "+columnBean.getCode().equals("200"));
                     if (columnBean!=null && columnBean.getCode().equals("200")){
+                        if (!TextUtils.isEmpty(columnBean.getBlockNmae())){
+                        villageaffairs_title_text.setText(columnBean.getBlockNmae());
+                        }
                         initRecyclerView();
                     }
                 }

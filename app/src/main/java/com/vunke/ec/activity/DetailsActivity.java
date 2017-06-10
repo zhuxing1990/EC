@@ -13,7 +13,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.RelativeLayout;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
@@ -38,7 +37,7 @@ import okhttp3.Response;
 public class DetailsActivity extends BaseActivity {
     private static final String TAG = "DetailsActivity";
     private WebView details_webview;
-    private RelativeLayout details_layout;
+//    private RelativeLayout details_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +107,7 @@ public class DetailsActivity extends BaseActivity {
     }
     private void initView() {
         details_webview = (WebView) findViewById(R.id.details_webview);
-        details_layout = (RelativeLayout) findViewById(R.id.details_layout);
+//        details_layout = (RelativeLayout) findViewById(R.id.details_layout);
         WebSettings settings = details_webview.getSettings();
         // 支持js
         settings.setJavaScriptEnabled(true);
@@ -165,6 +164,16 @@ public class DetailsActivity extends BaseActivity {
                     // notfy_webView.setVisibility(View.VISIBLE);
                 }
                 super.onProgressChanged(view, newProgress);
+            }
+
+            @Override
+            public void onShowCustomView(View view, CustomViewCallback callback) {
+                super.onShowCustomView(view, callback);
+            }
+
+            @Override
+            public void onHideCustomView() {
+                super.onHideCustomView();
             }
         });
         details_webview.setDownloadListener(new MyWebViewDownLoadListener());

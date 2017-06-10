@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.vunke.ec.R;
+import com.vunke.ec.mod.ColumnBean;
 
 import java.util.List;
-import java.util.Map;
 
 public class PAPAdapter extends RecyclerView.Adapter<PAPAdapter.PAPHolder>{
         private Context context;
-        private List<Map<String,Object>> datalist;
-        public PAPAdapter(Context context, List<Map<String,Object>> datalist){
+        private List<ColumnBean.DataBean> datalist;
+        public PAPAdapter(Context context, List<ColumnBean.DataBean> datalist){
             this.context= context;
             this.datalist = datalist;
         }
@@ -29,29 +29,24 @@ public class PAPAdapter extends RecyclerView.Adapter<PAPAdapter.PAPHolder>{
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_partyaffairspublicity2,parent,false);
             }
             PAPHolder holder = new PAPHolder(view);
-            holder.mItemView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
 
-                }
-            });
             return holder;
         }
 
         @Override
         public int getItemViewType(int position) {
-            return (int) datalist.get(position).get("type");
+            return (int) datalist.get(position).getAdapterType();
         }
 
         @Override
         public void onBindViewHolder(PAPHolder holder, int position) {
-            String title = (String) datalist.get(position).get("title");
-            String address = (String) datalist.get(position).get("address");
-            String city =(String) datalist.get(position).get("city");
-            String createtime = (String)  datalist.get(position).get("createtime");
+            String title = (String) datalist.get(position).getTitle();
+            String address = (String) datalist.get(position).getString2();
+//            String city =(String) datalist.get(position).get("city");
+            String createtime = (String)  datalist.get(position).getCreatetime();
             holder.pap_recycler_title.setText(title);
             holder.pap_recycler_address.setText(address);
-            holder.pap_recycler_city.setText(city);
+//            holder.pap_recycler_city.setText(city);
             holder.pap_recycler_createtime.setText(createtime);
         }
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_background2">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="105dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginRight="300dp"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/historicalculture_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="36sp"
+            android:textColor="@color/color_black"
+            android:text="@string/historical_culture"/>
+        <TextView
+            android:id="@+id/historicalculture_detalis_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:layout_below="@+id/historicalculture_title_text"
+            android:text="  早在新石器时代晚期，区境即有人类繁衍生息。出土文物证明，距今5000年左右，在今安化县马路口、江南，南县北河口，赫山区邓石桥和沅江市漉湖等地，就已形成村落。进入青铜器时代后，在今桃江县马迹塘、灰山港，沅江市莲子塘以及赫山区赫山庙、龙光桥、笔架山一带，聚居村落已趋密集。
+
+    东周以前，区境属《书·禹贡》所载九州中的荆州管辖。战国时期为楚国黔中郡属地。秦属长沙郡，置益阳县，以县治位于益水（今资水）之阳而得名，是为区境置县之初。时益阳县境辖今益阳市及邵阳和娄底两市各一部分。南朝梁时置药山县（今沅江市），宋置安化县。清末，设南洲直隶厅（今南县）。其间2200多年，境内属县虽有增加，但未形成地区（府、州）级行政建置。各县沿革与隶属关系，则随朝代更换，颇多变化。
+
+　　民国29年（1940），湖南省府以原9个行政督察区辖境过广和督察不便，将之调整为10个。同年4月，划益阳、安化、湘乡、宁乡、汉寿、沅江等6县，组成第五行政督察区，专员公署驻益阳县城，是为区境地区一级行政建置之始。南县属第四行政督察区（专员公署驻常德）。
+
+　　民国33年（1944），侵华日军大举进犯，湖南部分地域沦陷，各行政督察区的建置名存实亡。省政府遂设安化、沅陵、洪江3个行署，作为非常时期省政府临时派出机关，分领各县。安化行署是年10月18日于安化县梅城建立。原第五行政督察区所属各县均为安化县行署领辖。翌年7月31日，安化行署撤销，恢复第五行政督察区。
+
+　　1949年湖南各地相继解放，国民党政府在湖南的统治宣告结束，各行政督察区的建置随之瓦解。是年8月，成立新的湖南省临时政府（1950年4月正式成立省人民政府）后，全省设1个省辖市、10个专区。专区设专员公署，为省政府派出机关。益阳专区于1949年8月成立，专员公署驻益阳县城关区，辖益阳、安化、湘乡、宁乡、沅江、汉寿6县。
+
+　　1950年3月，益阳县城关区改为益阳城关区，升为县级；同年9月，建立益阳市，直属益阳专署领导。1951年4月，省政府执行中共中央关于“在100万人口左右的大县，领导困难，可以划小”的指示，析湘乡县第九、十区，安化县第三、四区和兰田镇，以及邵阳、新化县部分地域，置兰田县；析湘乡县第三、六、七区，置永峰县。同年七月，析益阳县第六、七、八、九、十一区，置桃江县，均属益阳专区管辖。当时，全区共辖9县、1市。南县则属常德专区。
+
+　　1952年11月，益阳专区建置撤销，原辖宁乡县划属湘潭专区，湘乡、双峰、涟源3县划归邵阳专区，益阳、桃江、安化、汉寿、沅江5县及益阳市划归常德专区，历时10年。其间，益阳市于1953年4月改为省辖市，授权常德专署领导，1958年7月改为益阳县领导，但1961年复改专区辖市，仍由常德专署领导。
+
+　　1962年12月，恢复益阳专区建置，专员公署驻益阳市桃花仑，辖南县、沅江、华容、益阳、宁乡、桃江、安化7县和益阳市。大通湖、千山红、金盆、北洲子、茶盘洲、钱粮湖6个国营农场，同时划归益阳专区管辖。
+
+　　1964年9月，华容县及钱粮湖农场划归岳阳专区。
+
+　　1968年，益阳专区改称益阳地区。
+
+　　1983年7月，宁乡县划属长沙市。至此，全区辖益阳、桃江、安化、沅江、南县和益阳市，及大通湖、北洲子、金盆、千山红、茶盘洲5个国营农场和大通湖渔场。
+
+　　1994年3月，国务院批准撤销益阳地区，设立地级益阳市；5月，新的中共益阳市第一次代表大会选举产生中共益阳市第一届委员会和纪律检查委员会；原益阳县、益阳市分别以资水为界，以南改为赫山区，以北改为资阳区。7月1日，“益阳市人民代表大会常务委员会”、“益阳市人民政府”、“中国人民政治协商会议益阳市委员会”正式挂牌。从此标志着地级益阳市的成立。全市辖3县（南县、桃江、安化）、1市（沅江市）、2区（赫山、资阳）、5大国营农场（大通湖、北洲子、金盘、千山红、茶盘洲）和大通湖渔场。
+
+　　2000年12月18日，中共大通湖区委员会、大通湖区管委会成立。5大国营农场撤销。场部所在地改设建置镇。大通湖区由大通湖、北洲子、金盘、千山红4大国营农场合并而成；茶盘洲农场改茶盘洲镇划归沅江市管辖。市辖境包括3县、1市、3区（赫山、资阳、大通湖）。"
+            android:textColor="@color/color_black"
+            android:lineSpacingMultiplier = "1.2"
+            android:textSize="26sp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/historicalculture_detalis_text">
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

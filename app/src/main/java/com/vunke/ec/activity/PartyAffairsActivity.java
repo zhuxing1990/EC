@@ -2,6 +2,7 @@ package com.vunke.ec.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -24,7 +25,6 @@ import com.vunke.ec.base.Configs;
 import com.vunke.ec.log.WorkLog;
 import com.vunke.ec.mod.ColumnBean;
 import com.vunke.ec.network_request.NetWorkRequest;
-import com.vunke.ec.util.GlideUtils;
 import com.vunke.ec.util.SharedPreferencesUtil;
 import com.vunke.ec.util.UiUtils;
 
@@ -38,6 +38,8 @@ import app.com.tvrecyclerview.TvRecyclerView;
 import okhttp3.Call;
 import okhttp3.Response;
 import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -52,10 +54,6 @@ public class PartyAffairsActivity extends BaseActivity {
     private TvRecyclerView partyaffairs_tvrecycler;
     private List<Map<String ,Object>> list;
     private Map<String,Object> map;
-    private String[] contentArr = {"益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动","益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动","益阳科技终止的万亩早稻长势喜人","全国人打农委在想开展脱贫攻坚专题调研","推进“两学一做”学习教育常态化制度化","益阳市启动2017农村法制宣传教育月活动"};
-    private String [] dataTimeArr = {"2017-5-20","2017-5-21","2017-5-22","2017-5-23","2017-5-24","2017-5-25","2017-5-26","2017-5-27","2017-5-28","2017-5-29","2017-5-30","2017-5-31"};
-    private int[] imgArr = {R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4,R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4,R.drawable.partyaffairs_view1,R.drawable.partyaffairs_view2,R.drawable.partyaffairs_view3,R.drawable.partyaffairs_view4};
-
     private String infoId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -231,20 +229,52 @@ public class PartyAffairsActivity extends BaseActivity {
             holder.onlinelearn_recycler_item_text.setText(list.get(position).getTitle());
             String imgurl = list.get(position).getMainpicurl();
             String string6 = list.get(position).getString6();
-            if (TextUtils.isEmpty(imgurl)&&TextUtils.isEmpty(string6)){
-                WorkLog.i(TAG, "onBindViewHolder: ------------all data is null");
-            }else if (TextUtils.isEmpty(string6)&& !TextUtils.isEmpty(imgurl)){
-                WorkLog.i(TAG, "onBindViewHolder: ------------mainpicurl has data");
-                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getMainpicurl(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,null);
-            }else if (!TextUtils.isEmpty(string6)&& TextUtils.isEmpty(imgurl)){
-                WorkLog.i(TAG, "onBindViewHolder: ------------getString6 has data");
-                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getString6(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,GlideUtils.LOAD_GIF);
-            }else if (!TextUtils.isEmpty(string6)&& !TextUtils.isEmpty(imgurl)){
-                WorkLog.i(TAG, "onBindViewHolder: ------------all data has data");
-                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getMainpicurl(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,null);
-            }
+//            if (TextUtils.isEmpty(imgurl)&&TextUtils.isEmpty(string6)){
+//                WorkLog.i(TAG, "onBindViewHolder: ------------all data is null");
+//            }else if (TextUtils.isEmpty(string6)&& !TextUtils.isEmpty(imgurl)){
+//                WorkLog.i(TAG, "onBindViewHolder: ------------mainpicurl has data");
+//                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getMainpicurl(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,null);
+//            }else if (!TextUtils.isEmpty(string6)&& TextUtils.isEmpty(imgurl)){
+//                WorkLog.i(TAG, "onBindViewHolder: ------------getString6 has data");
+//                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getString6(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,GlideUtils.LOAD_GIF);
+//            }else if (!TextUtils.isEmpty(string6)&& !TextUtils.isEmpty(imgurl)){
+//                WorkLog.i(TAG, "onBindViewHolder: ------------all data has data");
+//                GlideUtils.getInstance().LoadContextBitmap(context,list.get(position).getMainpicurl(),holder.onlinelearn_recycler_item_img,R.drawable.touming,R.drawable.touming,null);
+//            }
+            getVideoBitmap(holder.onlinelearn_recycler_item_img,list.get(position).getString6());
         }
+        private void getVideoBitmap(final ImageView imageView,final String path){
+//            Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(path, 500);
+//            imageView.setImageBitmap(bitmap);
 
+        Observable.unsafeCreate(new Observable.OnSubscribe<Bitmap>() {
+
+                @Override
+                public void call(Subscriber<? super Bitmap> subscriber) {
+                    Bitmap bitmap = UiUtils.createVideoThumbnail(path, 255, 138);
+                    subscriber.onNext(bitmap);
+                }
+            }).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<Bitmap>() {
+                        @Override
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(Bitmap bitmap) {
+                            imageView.setImageBitmap(bitmap);
+                        }
+                    });
+
+
+        }
         @Override
         public int getItemCount() {
             return list.size();

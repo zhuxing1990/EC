@@ -73,9 +73,18 @@
         <activity android:name="com.vunke.ec.activity.DetailsActivity">
 
         </activity>
-        <activity android:name=".activity.VideoPlayActivity">
+        <activity android:name="com.vunke.ec.activity.VideoPlayActivity">
 
         </activity>
+
+        <activity android:name="com.vunke.ec.activity.GovernmentAffairsActivity">
+
+        </activity>
+        <activity android:name="com.vunke.ec.activity.WalkIntoYiYangActivity">
+
+        </activity>
+
+
 
         <service android:name="com.vunke.ec.service.killSelfService">
         </service>

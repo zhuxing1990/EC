@@ -1,5 +1,6 @@
 package com.vunke.ec.activity;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -23,6 +24,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.vunke.ec.R;
 import com.vunke.ec.adapter.HomeClassifyAdapter;
 import com.vunke.ec.base.BaseActivity;
+import com.vunke.ec.base.Configs;
 import com.vunke.ec.log.WorkLog;
 import com.vunke.ec.mod.Home_IndexBean;
 import com.vunke.ec.network_request.NetWorkRequest;
@@ -374,7 +376,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
 
         home_video_rl.setOnFocusChangeListener(this);
         home_video_rl.setFocusable(true);
-
+        home_video_rl.setOnClickListener(this);
 
     }
 
@@ -472,6 +474,11 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                 break;
             case R.id.home_rd_view3:
                 StartUp(home_indexBean.getIndex().size() -1);
+                break;
+            case R.id.home_video_rl:
+                Configs.intent = new Intent(mcontext,VideoPlayActivity.class);
+                Configs.intent.putExtra("videoPath",videoPath);
+                startActivity(Configs.intent);
                 break;
         }
     }

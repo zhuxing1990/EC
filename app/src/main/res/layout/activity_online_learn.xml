@@ -23,7 +23,6 @@
             android:id="@+id/onlinelearn_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/onlinelearn"
             android:textSize="36sp"
             android:paddingLeft="10dp"
             android:layout_toRightOf="@id/onlinelearn_title_img"

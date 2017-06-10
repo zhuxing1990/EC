@@ -14,23 +14,23 @@ import com.vunke.ec.view.FlyBorderView;
 public class OnFouchAnim {
     public static void showAnim(FlyBorderView mv, View v, boolean hasFocus, Context mcontext) {
         if (hasFocus) {
+            v.bringToFront();
+            mv.bringToFront();
             scaleBig(v, mcontext);
             mv.setVisibility(View.VISIBLE);
             mv.setTvScreen(true);
             mv.setFocusView(v, 1.1f);
-            mv.bringToFront();
         } else {
             scaleSmall(v, mcontext);
             mv.setVisibility(View.INVISIBLE);
         }
     }
-    public static void showAnim2(FlyBorderView mv, View v, boolean hasFocus, Context mcontext){
-            mv.setVisibility(View.INVISIBLE);
+    public static void showAnim2( View v, boolean hasFocus, Context mcontext){
+        v.bringToFront();
         if (hasFocus){
-            scaleBig(v, mcontext);
-
+            scaleBig2(v, mcontext);
         }else{
-            scaleSmall(v, mcontext);
+            scaleSmall2(v, mcontext);
         }
     }
     public static void showAnim3(FlyBorderView mv, View v, boolean hasFocus, Context mcontext){
@@ -60,6 +60,15 @@ public class OnFouchAnim {
 
     public static void scaleBig(View v, Context mcontext) {
         Animation animation = AnimationUtils.loadAnimation(mcontext, R.anim.anim_scale_big);
+        v.startAnimation(animation);
+    }
+    public static void scaleSmall2(View v, Context mcontext) {
+        Animation animation = AnimationUtils.loadAnimation(mcontext, R.anim.anim_scale_small2);
+        v.startAnimation(animation);
+    }
+
+    public static void scaleBig2(View v, Context mcontext) {
+        Animation animation = AnimationUtils.loadAnimation(mcontext, R.anim.anim_scale_big2);
         v.startAnimation(animation);
     }
 

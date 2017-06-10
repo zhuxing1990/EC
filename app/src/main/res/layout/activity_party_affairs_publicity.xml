@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/function_background">
+    android:background="@drawable/layout_background1">
 
     <RelativeLayout
         android:id="@+id/pap_title_relative"
@@ -28,7 +28,7 @@
             android:textSize="36sp"
             android:paddingLeft="10dp"
             android:textColor="@color/color_white1"
-            android:text="@string/village_affairs_publicity"/>
+           />
     </RelativeLayout>
 
     <RelativeLayout

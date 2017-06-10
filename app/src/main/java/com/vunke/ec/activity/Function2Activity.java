@@ -28,8 +28,6 @@ public class Function2Activity extends BaseActivity {
     private static final String TAG = "Function2Activity";
     private RecyclerView function_recyclerview;
     private FlyBorderView function_flyborderview;
-    private int [] imgArr = {R.drawable.function_mainview1,R.drawable.function_mainview2,R.drawable.function_mainview3,R.drawable.function_mainview4};
-    private String [] textArr = {"益村党务","益村村务","精准扶贫","办事指南"};
     private List<Map<String,Object>> list;
     private Map<String ,Object > map;
     private FunctionAdapter adapter;
