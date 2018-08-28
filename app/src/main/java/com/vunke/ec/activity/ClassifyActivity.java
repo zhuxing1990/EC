@@ -9,7 +9,6 @@ import com.vunke.ec.base.BaseActivity;
  * 分类
  */
 public class ClassifyActivity extends BaseActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

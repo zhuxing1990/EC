@@ -134,7 +134,6 @@ public class VillageAffairsActivity extends BaseActivity {
                 @Override
                 public void onAfter(String s, Exception e) {
                     super.onAfter(s, e);
-                    WorkLog.i(TAG, "onAfter: "+columnBean.getCode().equals("200"));
                     if (columnBean!=null && columnBean.getCode().equals("200")){
                         if (!TextUtils.isEmpty(columnBean.getBlockNmae())){
                         villageaffairs_title_text.setText(columnBean.getBlockNmae());

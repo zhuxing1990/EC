@@ -19,7 +19,6 @@
 
     <application
         android:name=".base.MyApplication"
-        android:allowBackup="true"
         android:icon="@mipmap/yicun"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -28,7 +27,7 @@
         <activity android:name="com.vunke.ec.activity.MainActivity" >
 
         </activity>
-
+        <!--首页-->
         <activity android:name="com.vunke.ec.activity.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -36,58 +35,74 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--首页2-->
         <activity android:name="com.vunke.ec.activity.FunctionActivity">
 
         </activity>
-
+        <!--分类-->
         <activity android:name="com.vunke.ec.activity.ClassifyActivity" >
 
         </activity>
-
+        <!--党务公开-->
         <activity android:name="com.vunke.ec.activity.PartyAffairsPublicityActivity" >
 
         </activity>
-
+        <!--在线学习-->
         <activity android:name="com.vunke.ec.activity.OnlineLearnActivity">
 
         </activity>
+        <!--益村信息平台-->
         <activity android:name="com.vunke.ec.activity.Function2Activity" >
 
         </activity>
+        <!--党员教育-->
         <activity android:name="com.vunke.ec.activity.PartyAffairsActivity" >
 
         </activity>
+        <!--村务-->
         <activity android:name="com.vunke.ec.activity.VillageAffairsActivity">
 
         </activity>
-
+        <!--办事指南-->
         <activity android:name="com.vunke.ec.activity.OfficeGuideActivity">
 
         </activity>
+        <!--办事须知-->
         <activity android:name="com.vunke.ec.activity.OffficeNoticeActivity">
 
         </activity>
+        <!--精准扶贫-->
         <activity android:name="com.vunke.ec.activity.PovertyAlleviationActivity">
 
         </activity>
+        <!--详情-->
         <activity android:name="com.vunke.ec.activity.DetailsActivity">
 
         </activity>
+        <!--视频播放-->
         <activity android:name="com.vunke.ec.activity.VideoPlayActivity">
 
         </activity>
-
+        <!--政务-->
         <activity android:name="com.vunke.ec.activity.GovernmentAffairsActivity">
 
         </activity>
+        <!--走进益阳-->
         <activity android:name="com.vunke.ec.activity.WalkIntoYiYangActivity">
 
         </activity>
+        <!--党员教育-->
+        <activity android:name=".activity.PartyEducationActivity">
 
+        </activity>
+        <!--政务公开-->
+        <activity android:name=".activity.GovernmentAffairsPublicityActivity">
 
-
+        </activity>
+        <!-- -->
         <service android:name="com.vunke.ec.service.killSelfService">
         </service>
+
     </application>
 
 </manifest>

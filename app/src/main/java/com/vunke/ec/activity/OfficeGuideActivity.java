@@ -169,7 +169,9 @@ public class OfficeGuideActivity extends BaseFragementActivity  implements ViewP
                         if (officeguide_content_viewpager != null) {
                             WorkLog.i(TAG, "onItemViewFocusChanged:  posititon:" + position + " viewpager.item:" + officeguide_content_viewpager.getCurrentItem());
                             if (position <= fragmentList.size() && position != officeguide_content_viewpager.getCurrentItem()) {
-                                officeguide_content_viewpager.setCurrentItem(position, false);
+                                if (!isDestroyed()){
+                                    officeguide_content_viewpager.setCurrentItem(position, false);
+                                }
                             } else {
                                 WorkLog.i(TAG, "onItemViewFocusChanged:  viewpager.getCurrentItem:" + officeguide_content_viewpager.getCurrentItem());
                             }

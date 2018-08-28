@@ -3,11 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fragment_background3">
-
+    <RelativeLayout
+        android:layout_marginTop="97dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp">
+    <ScrollView
+        android:layout_width="980dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
     <RelativeLayout
         android:layout_width="980dp"
         android:layout_height="480dp"
-        android:layout_marginTop="97dp"
+
         android:background="@drawable/layout_shape_background"
         android:layout_centerHorizontal="true">
         <TextView
@@ -17,18 +25,19 @@
             android:layout_marginTop="30dp"
             android:textColor="@color/color_blue4"
             android:textSize="36sp"
+            android:focusable="true"
             android:layout_marginLeft="30dp"
             android:text="@string/today_style"/>
-        <TextView
+        <com.vunke.ec.view.HorseRaceLampTextView
             android:id="@+id/today_style_details_text"
             android:layout_below="@+id/today_style_title_text"
             android:textSize="26sp"
+            android:focusable="true"
             android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:textColor="@color/color_blue4"
-            android:maxLines="4"
             android:lineSpacingMultiplier = "1.2"
             android:layout_marginTop="30dp"
-            android:ellipsize="end"
             android:text="    经济总量迈上新台阶。 初步核算，全市实现地区生产总值（GDP ）1253.15亿元，比上年增长10.8%，增速超全省平均水平1.3个百分点，居全省第2位。其中第一产业增加值为234.14亿元，增长4.9%；第二产业增加值553.21亿元，增长10.9%；第三产业增加值465.80亿元，增长13.5%。第一、二、三次产业对经济增长的贡献率分别为8.3%、44.7%和47%。按常住人口计算，人均GDP 28596元，折合4673美元,增长10.2%。全市三次产业结构由上年的19.2:45.0:35.8调整为18.7:44.1:37.2，二三产业比重提高0.5个百分点。
    新型工业化、城镇化和农业产业化取得新进展。工业保持较快增长，全部工业增加值增长11.1%，对经济增长的贡献率为40.6%，推动经济增长4.4个百分点。工业增加值占GDP的比重为39.9%。农产品加工业全年完成销售收入584亿元，利润总额39.6亿元。全市有国家级农业产业化龙头企业4家，省级龙头企业40家，市级龙头企业282家。农民组织化程度不断提高，农民专业合作组织发展到2169个，新增792个。城市创建全面推进，城镇化水平进一步提升。创建国家交通管理模范城市工作顺利推进。2014年城市化率为44.76%，比上年提高1.45个百分点。
 市场物价小幅上涨。全年居民消费价格比上年上涨1.7%。八大类呈现“六升两降”，其中食品类上涨2.2%；衣着类上涨1.0%医疗保健和个人用品类上涨1.4%；交通和通信类上涨3.5%；娱乐教育用品及服务类上涨3.7%，居住类上涨0.5%；而烟酒类下降1.2%，家庭设备用品及维修服务类下降1.0%。
@@ -37,5 +46,7 @@
 财政收支稳步增长。全年公共财政收入94.91亿元，比上年增长10.3%，增速超过全省平均水平0.8个百分点。其中地方财政收入59.44亿元，比上年增长14.2%；全年财政支出231.87亿元，增长15.6%。公共财政收入中税收收入72.88亿元，税收占公共财政收入的比重为76.8%。公共财政收入占GDP的比重为7.6%。"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+    </RelativeLayout>
+    </ScrollView>
     </RelativeLayout>
 </RelativeLayout>

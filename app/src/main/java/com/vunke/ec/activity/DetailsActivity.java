@@ -8,27 +8,26 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
-import com.google.gson.Gson;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
 import com.vunke.ec.R;
 import com.vunke.ec.base.BaseActivity;
 import com.vunke.ec.log.WorkLog;
-import com.vunke.ec.mod.DetailsBean;
-import com.vunke.ec.network_request.NetWorkRequest;
-import com.vunke.ec.util.SharedPreferencesUtil;
-import com.vunke.ec.util.UiUtils;
+import com.vunke.ec.view.ScrollWebView;
 
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 
-import okhttp3.Call;
-import okhttp3.Response;
+import rx.Observable;
+import rx.Subscriber;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * 详情页面
@@ -36,77 +35,89 @@ import okhttp3.Response;
  */
 public class DetailsActivity extends BaseActivity {
     private static final String TAG = "DetailsActivity";
-    private WebView details_webview;
+    private ScrollWebView details_webview;
 //    private RelativeLayout details_layout;
-
+    private ImageView details_title_godown;
+    private ImageView details_title_goup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
         getIntentData();
         initView();
+        initWebView();
+        initListener();
+        initTimeOut();
     }
+
     private int infoid;
-    private  DetailsBean detailsBean;
+//    private  DetailsBean detailsBean;
     protected void getIntentData() {
         Intent intent = getIntent();
         if (intent.hasExtra("infoid")) {
             infoid = intent.getIntExtra("infoid",-1);
         }
-        if (infoid>0){
+        if (infoid<0){
             Log.i(TAG, "getIntentData:  infoid is null");
-            return;
         }
-        try {
-
-            JSONObject json = new JSONObject();
-            json.put("infoId",infoid);
-            json.put("userId", SharedPreferencesUtil.getStringValue(mcontext,SharedPreferencesUtil.USER_ID,""));
-            json.put("versionCode", UiUtils.getVersionCode(mcontext)+"");
-            WorkLog.i(TAG, "getIntentData: json="+json.toString());
-            OkGo.post(NetWorkRequest.BaseUrl + NetWorkRequest.FIND_BYI_ID_INFO2).tag(this).params("json", json.toString()).execute(new StringCallback() {
-                @Override
-                public void onSuccess(String s, Call call, Response response) {
-                    WorkLog.i(TAG, "onSuccess: ------------------------------------------------------------"+s);
-                    try {
-                        JSONObject js = new JSONObject(s);
-                        if (js.has("code")){
-                            int code = js.getInt("code");
-                            switch (code){
-                                case 200:
-                                     detailsBean = new Gson().fromJson(s, DetailsBean.class);
-                                    break;
-                                case 400:
-                                    break;
-                                case 500:
-                                    break;
-                            }
-                        }
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onError(Call call, Response response, Exception e) {
-                    super.onError(call, response, e);
-                    WorkLog.i(TAG, "onError: ----------------------------------------------------------------");
-                }
-
-                @Override
-                public void onAfter(String s, Exception e) {
-                    super.onAfter(s, e);
-                    if (detailsBean!=null && detailsBean.getCode().equals("200")){
-
-                    }
-                }
-            });
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//
+//            JSONObject json = new JSONObject();
+//            json.put("infoId",infoid);
+//            json.put("userId", SharedPreferencesUtil.getStringValue(mcontext,SharedPreferencesUtil.USER_ID,""));
+//            json.put("versionCode", UiUtils.getVersionCode(mcontext)+"");
+//            WorkLog.i(TAG, "getIntentData: json="+json.toString());
+//            OkGo.post(NetWorkRequest.BaseUrl + NetWorkRequest.FIND_BYI_ID_INFO2).tag(this).params("json", json.toString()).execute(new StringCallback() {
+//                @Override
+//                public void onSuccess(String s, Call call, Response response) {
+//                    WorkLog.i(TAG, "onSuccess: ------------------------------------------------------------"+s);
+//                    try {
+//                        JSONObject js = new JSONObject(s);
+//                        if (js.has("code")){
+//                            int code = js.getInt("code");
+//                            switch (code){
+//                                case 200:
+//                                    detailsBean = new Gson().fromJson(s, DetailsBean.class);
+//                                    break;
+//                                case 400:
+//                                    break;
+//                                case 500:
+//                                    break;
+//                            }
+//                        }
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//                @Override
+//                public void onError(Call call, Response response, Exception e) {
+//                    super.onError(call, response, e);
+//                    WorkLog.i(TAG, "onError: ----------------------------------------------------------------");
+//                }
+//
+//                @Override
+//                public void onAfter(String s, Exception e) {
+//                    super.onAfter(s, e);
+//                    if (detailsBean!=null && detailsBean.getCode().equals("200")){
+//
+//                    }
+//                }
+//            });
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
     private void initView() {
-        details_webview = (WebView) findViewById(R.id.details_webview);
+        details_webview = (ScrollWebView) findViewById(R.id.details_webview);
+        details_title_godown = (ImageView) findViewById(R.id.details_title_godown);
+        details_title_goup = (ImageView) findViewById(R.id.details_title_goup);
+    }
+    private void initWebView() {
+
 //        details_layout = (RelativeLayout) findViewById(R.id.details_layout);
         WebSettings settings = details_webview.getSettings();
         // 支持js
@@ -119,6 +130,9 @@ public class DetailsActivity extends BaseActivity {
         settings.setBuiltInZoomControls(true);
         settings.setLightTouchEnabled(true);
         settings.setSupportZoom(true);
+//        settings.setUseWideViewPort(true);
+//        settings.setLoadWithOverviewMode(true);
+//        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         // 不使用缓存，只从网络获取数据.
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         // settings.setLoadWithOverviewMode(true);
@@ -165,22 +179,108 @@ public class DetailsActivity extends BaseActivity {
                 }
                 super.onProgressChanged(view, newProgress);
             }
-
-            @Override
-            public void onShowCustomView(View view, CustomViewCallback callback) {
-                super.onShowCustomView(view, callback);
-            }
-
-            @Override
-            public void onHideCustomView() {
-                super.onHideCustomView();
-            }
+//            @Override
+//            public void onShowCustomView(View view, CustomViewCallback callback) {
+//                super.onShowCustomView(view, callback);
+//            }
+//
+//            @Override
+//            public void onHideCustomView() {
+//                super.onHideCustomView();
+//            }
         });
         details_webview.setDownloadListener(new MyWebViewDownLoadListener());
         details_webview.loadUrl("http://124.232.136.236:8083/kjmgr/ec/info/toInfoContentView.shtml?infoid="+infoid);
     }
 
+    private boolean isPageEnd = false;
+    private boolean isPageTop = true;
+    private void initListener() {
 
+        details_webview.setOnScrollChangeListener(new ScrollWebView.OnScrollChangeListener() {
+            @Override
+            public void onPageEnd(int l, int t, int oldl, int oldt) {
+                details_title_goup.setVisibility(View.VISIBLE);
+                details_title_godown.setVisibility(View.INVISIBLE);
+                isPageEnd = true;
+                isPageTop = false;
+            }
+
+            @Override
+            public void onPageTop(int l, int t, int oldl, int oldt) {
+                details_title_goup.setVisibility(View.INVISIBLE);
+                details_title_godown.setVisibility(View.VISIBLE);
+;               isPageEnd = false;
+                isPageTop = true;
+            }
+
+            @Override
+            public void onScrollChanged(int l, int t, int oldl, int oldt) {
+                if (!isPageEnd){
+                    details_title_godown.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
+    private Observable<Long> observable;
+    private Subscriber<Long> subscriber;
+    private  Subscription subscribe2;
+    private void initTimeOut() {
+        final long endtime = 5000;
+        observable = Observable.interval(endtime,2000, TimeUnit.MILLISECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+
+        subscriber = new Subscriber<Long>() {
+            @Override
+            public void onCompleted() {
+                this.unsubscribe();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                this.unsubscribe();
+            }
+
+            @Override
+            public void onNext(Long aLong) {
+                if (aLong != 0) {
+                    if (details_webview.getVisibility() == View.VISIBLE) {
+                        if (isPageTop && !isPageEnd) {
+                            details_webview.scrollBy(0, 1);
+                        } else if (isPageEnd) {
+                            this.unsubscribe();
+                        }
+                    }
+                } else {
+
+                }
+            }
+        };
+        subscribe2 = observable.subscribe(subscriber);
+    }
+
+
+
+
+
+
+    private void stopTimerOut() {
+        if (subscribe2!=null) {
+            subscribe2.unsubscribe();
+        }
+        subscribe2 = null;
+        observable = null;
+        subscriber = null;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (subscribe2!=null&&!subscribe2.isUnsubscribed()){
+            subscribe2.unsubscribe();
+        }
+    }
 
     /**
      * WebView 点击下载监听
@@ -200,16 +300,27 @@ public class DetailsActivity extends BaseActivity {
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            WorkLog.i(TAG, "onKey:ACTION_DOWN -----------------------------------");
+            if (subscribe2 != null) {
+                stopTimerOut();
+            }
+            initTimeOut();
+        }
         WorkLog.i(TAG, "keyCode:" + keyCode);
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {// && notfy_webView.canGoBack()
-            finish();
-            // notfy_webView.goBack(); // goBack()表示返回WebView的上一页面
-            return true;
+        if (keyCode == KeyEvent.KEYCODE_BACK && details_webview.canGoBack()) {  //表示按返回键
+            if (details_webview.getUrl().contains("http://124.232.136.236:8083/kjmgr/ec/info/toInfoContentView.shtml")){
+                return false;
+            }
+            details_webview.goBack();   //后退
+            //webview.goForward();//前进
+            return true;    //已处理
         }
-        if (keyCode == KeyEvent.KEYCODE_HOME) {
-            return true;
-        }
+//        else if(keyCode == KeyEvent.KEYCODE_BACK){
+//            return false;
+//        }
         return super.onKeyDown(keyCode, event);
 
     }
+
 }

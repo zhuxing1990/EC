@@ -12,21 +12,21 @@ import com.vunke.ec.mod.ColumnBean;
 
 import java.util.List;
 
-public class PAPAdapter extends RecyclerView.Adapter<PAPAdapter.PAPHolder>{
+public class GAPAdapter extends RecyclerView.Adapter<GAPAdapter.PAPHolder>{
         private Context context;
         private List<ColumnBean.DataBean> datalist;
-        public PAPAdapter(Context context, List<ColumnBean.DataBean> datalist){
+        public GAPAdapter(Context context, List<ColumnBean.DataBean> datalist){
             this.context= context;
             this.datalist = datalist;
         }
         @Override
         public PAPHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view= null;
-            if (viewType == 1){//recycler_governmentaffairspublicity  recycler_partyaffairspublicity
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_partyaffairspublicity,parent,false);
+            if (viewType == 1){// recycler_partyaffairspublicity   recycler_governmentaffairspublicity
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_governmentaffairspublicity,parent,false);
                 PAPHolder holder = new PAPHolder(view);
             }else if (viewType == 2){
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_partyaffairspublicity2,parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_governmentaffairspublicity2,parent,false);
             }
             PAPHolder holder = new PAPHolder(view);
 
@@ -56,6 +56,7 @@ public class PAPAdapter extends RecyclerView.Adapter<PAPAdapter.PAPHolder>{
         }
 
         public class PAPHolder extends RecyclerView.ViewHolder{
+
             private TextView pap_recycler_title;
             private TextView pap_recycler_address;
             private TextView pap_recycler_city;

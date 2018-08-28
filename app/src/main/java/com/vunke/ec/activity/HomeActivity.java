@@ -16,7 +16,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
@@ -62,7 +61,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
     private RelativeLayout home_fc_view1,home_fc_view2,home_fc_view3,home_fc_view4;
     private RelativeLayout home_rd_view1,home_rd_view2,home_rd_view3;
     private RelativeLayout home_video_rl;
-    private TextView home_title;
+    private ImageView home_title;
     private ImageView home_ct_img1,home_ct_img2,home_ct_img3;
     private ImageView home_fc_img1,home_fc_img2,home_fc_img3,home_fc_img4;
     private ImageView home_rd_img1,home_rd_img2,home_rd_img3;
@@ -95,10 +94,15 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
         setContentView(R.layout.activity_home);
         userId = SharedPreferencesUtil.getStringValue(mcontext,SharedPreferencesUtil.USER_ID,"");
         WorkLog.i(TAG, "onCreate: userId:"+userId);
+//        userId = "test";
+        if (TextUtils.isEmpty(userId)){
+            showToast("获取用户信息失败，请重新打开应用。");
+            finish();
+            return;
+        }
         initView();
         initListener();
         initData();
-
     }
 
     private void initData() {
@@ -268,7 +272,8 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                         WorkLog.i(TAG, "文字" + indexBean.getImplement_content());
                         String textContext  = indexBean.getImplement_content();
                         if (indexBean.getIndex_id().equals("0")){
-                            home_title.setText(textContext);
+//                            home_title.setText(textContext);
+                                GlideUtils.getInstance().LoadContextBitmap(HomeActivity.this,textContext,home_title,R.drawable.touming,R.drawable.touming,null);
                         }else{
                             listdata.add(indexBean);
                         }
@@ -286,8 +291,9 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
 
     private void initView() {
         home_surfaceview = (SurfaceView) findViewById(R.id.home_surfaceview);
+
         home_flyborderview = (FlyBorderView) findViewById(R.id.home_flyborderview);
-        home_title = (TextView) findViewById(R.id.home_title);
+        home_title = (ImageView) findViewById(R.id.home_title);
 
         home_ct_view1 = (RelativeLayout) findViewById(R.id.home_ct_view1);
         home_ct_view2 = (RelativeLayout) findViewById(R.id.home_ct_view2);
@@ -327,6 +333,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
     }
 
     private void initListener() {
+        home_surfaceview.getHolder().addCallback(this);
         home_ct_view1.requestFocus();
         home_ct_view1.setOnFocusChangeListener(this);
         home_ct_view2.setOnFocusChangeListener(this);
@@ -476,9 +483,13 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                 StartUp(home_indexBean.getIndex().size() -1);
                 break;
             case R.id.home_video_rl:
-                Configs.intent = new Intent(mcontext,VideoPlayActivity.class);
-                Configs.intent.putExtra("videoPath",videoPath);
-                startActivity(Configs.intent);
+                if (!TextUtils.isEmpty(videoPath)){
+                    Configs.intent = new Intent(mcontext,VideoPlayActivity.class);
+                    Configs.intent.putExtra("videoPath",videoPath);
+                    startActivity(Configs.intent);
+                }else{
+                    showToast("获取视频信息失败!");
+                }
                 break;
         }
     }
@@ -607,7 +618,8 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
      * 初始化视频
      */
     private void initVideo() {
-        Observable.timer(100, TimeUnit.MILLISECONDS).subscribe(new Action1<Long>() {
+        Observable.timer(100, TimeUnit.MILLISECONDS)
+                .subscribe(new Action1<Long>() {
             @Override
             public void call(Long aLong) {
                 videoPlay();
@@ -626,9 +638,11 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                 mediaPlayer = null;
             }
             mediaPlayer = new MediaPlayer();
+            mediaPlayer.reset();
+            mediaPlayer.setLooping(true);
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             // 设置播放的视频源
-            if (videoPath.startsWith("http://")) {
+            if (videoPath.startsWith("http://")||videoPath.startsWith("rtsp://")||videoPath.startsWith("rsp://")) {
                 WorkLog.i(TAG, "initVideo: get videopath is network video");
                 mediaPlayer.setDataSource(mcontext, Uri.parse(videoPath));
             } else {
@@ -636,8 +650,8 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                     File file = new File(videoPath);
                     if (!file.exists()) {
                         WorkLog.i(TAG, "initVideo: get videofile not exists");
-                        showToast("获取播放视频文件失败或者文件不存在");
-                        finish();
+//                       WorkLog.i(TAG,"获取播放视频文件失败或者文件不存在");
+//                        finish();
                         return;
                     } else {
                         WorkLog.i(TAG, "initVideo: get videopath is local video");
@@ -647,6 +661,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
                     e.printStackTrace();
                 }
             }
+
 //            mediaPlayer.setDisplay(home_surfaceview.getHolder());
             WorkLog.i(TAG, "initVideo: loading video");
             mediaPlayer.prepareAsync();
@@ -668,6 +683,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         WorkLog.i(TAG, "surfaceCreated: surfaceView创建");
+
     }
 
     @Override
@@ -691,7 +707,7 @@ public class HomeActivity extends BaseActivity implements View.OnFocusChangeList
         if (mediaPlayer != null) {
             mediaPlayer.reset();
         }
-        replay();
+
     }
 
     @Override

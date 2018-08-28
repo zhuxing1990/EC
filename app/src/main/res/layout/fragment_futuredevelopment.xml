@@ -3,10 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fragment_background4">
+    <RelativeLayout
+        android:layout_marginTop="97dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp">
+    <ScrollView
+        android:layout_width="860dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
         <RelativeLayout
             android:layout_width="860dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="97dp"
+            android:background="@drawable/layout_shape_background"
             android:layout_centerHorizontal="true">
 
             <TextView
@@ -15,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="36sp"
                 android:text="@string/future_development"
+                android:focusable="true"
                 android:textColor="@color/color_blue4"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -24,17 +34,18 @@
                 android:layout_marginTop="30dp"
                 android:textColor="@color/color_blue4"
                 android:textSize="26sp"
-                android:ellipsize="end"
-                android:maxLines="5"
+                android:focusable="true"
                 android:lineSpacingMultiplier = "1.2"
-                android:text="“十二五”时期要全面实施“四大战略”，即工业强市、绿色发展、开放带动、城乡统筹发展。
+                android:text="    “十二五”时期要全面实施“四大战略”，即工业强市、绿色发展、开放带动、城乡统筹发展。
 
-    ——经济发展实现新跨越。“十二五”期间，生产总值年均增长13%，财政总收入年均增长20%，固定资产投资年均增长25%，社会消费品零售总额年均增长17%。结构调整更趋合理，三次产业结构调整为15：48：37。全市城镇化率达到50%。
+               \n    经济发展实现新跨越。“十二五”期间，生产总值年均增长13%，财政总收入年均增长20%，固定资产投资年均增长25%，社会消费品零售总额年均增长17%。结构调整更趋合理，三次产业结构调整为15：48：37。全市城镇化率达到50%。
 
-    ——绿色益阳建设取得新成效。单位GDP能耗五年累计下降16%；主要污染物排放削减8%以上,基本建成宜居山水生态旅游城市。
+               \n    绿色益阳建设取得新成效。单位GDP能耗五年累计下降16%；主要污染物排放削减8%以上,基本建成宜居山水生态旅游城市。
 
-    ——改革开放取得新突破。全市招商引资总量目标年均增长15%以上，进出口贸易年均增长15%以上。
+               \n    改革开放取得新突破。全市招商引资总量目标年均增长15%以上，进出口贸易年均增长15%以上。
 
-    ——人民生活水平得到新提升。城乡居民收入与经济发展同步增长，年均增长均达到12%，民生得到极大改善;社会治安和安全生产进一步加强，人民群众的幸福感普遍提高。"/>
+               \n    人民生活水平得到新提升。城乡居民收入与经济发展同步增长，年均增长均达到12%，民生得到极大改善;社会治安和安全生产进一步加强，人民群众的幸福感普遍提高。"/>
         </RelativeLayout>
+    </ScrollView>
+    </RelativeLayout>
 </RelativeLayout>

@@ -2,19 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/color_yellow8"
+    android:background="@color/color_blue5"
     android:focusable="true"
     android:addStatesFromChildren="true"
     android:layout_height="60dp">
     <TextView
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
         android:id="@+id/pap_recycler_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:paddingLeft="10dp"
         android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
         android:ems="20"
         android:layout_centerVertical="true"
         android:textColor="@color/color_white1"/>
@@ -32,9 +33,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/pap_recycler_address"
         android:textSize="24sp"
-        android:gravity="left"
         android:textColor="@color/color_white1"
         android:paddingRight="42dp"
+        android:gravity="left"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/pap_recycler_city"/>
     <TextView

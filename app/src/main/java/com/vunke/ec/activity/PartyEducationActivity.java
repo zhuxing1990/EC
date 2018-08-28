@@ -20,13 +20,13 @@ import com.vunke.ec.util.UiUtils;
 import app.com.tvrecyclerview.TvRecyclerView;
 
 /**
- * 政务
- * Created by zhuxi on 2017/6/9.
+ * 党务
+ * Created by zhuxi on 2017/6/12.
  */
-public class GovernmentAffairsActivity extends BaseActivity {
-    private static final String TAG = "GovernmentAffairsActivity";
-    private TvRecyclerView governmentaffair_recycler;
-    private TextView governmentaffair_title_text;
+public class PartyEducationActivity extends BaseActivity{
+    private static final String TAG = "PartyEducationActivity";
+    private TvRecyclerView partyeducation_recycler;
+    private TextView partyeducation_title_text;
     private String infoId;
     private String jsonData;
     private Function2Bean function2Bean;
@@ -34,14 +34,14 @@ public class GovernmentAffairsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_governmentaffair);
+        setContentView(R.layout.activity_partyeducation);
         initView();
         getIntentData();
         initListener();
     }
 
     private void initListener() {
-        governmentaffair_recycler.setOnItemStateListener(new TvRecyclerView.OnItemStateListener() {
+        partyeducation_recycler.setOnItemStateListener(new TvRecyclerView.OnItemStateListener() {
             @Override
             public void onItemViewClick(View view, int position) {
                 Function2Bean.DataBean dataBean = function2Bean.getData().get(position);
@@ -56,16 +56,16 @@ public class GovernmentAffairsActivity extends BaseActivity {
 
             }
         });
-        governmentaffair_recycler.setSelectedScale(1.1f);
-        governmentaffair_recycler.setSelectPadding(6,6,6,6);
+        partyeducation_recycler.setSelectedScale(1.1f);
+        partyeducation_recycler.setSelectPadding(6,6,6,6);
     }
 
     private void initView() {
-        governmentaffair_recycler = (TvRecyclerView) findViewById(R.id.governmentaffair_recycler);
+        partyeducation_recycler = (TvRecyclerView) findViewById(R.id.partyeducation_recycler);
         LinearLayoutManager linearLayoutmanager = new LinearLayoutManager(mcontext);
         linearLayoutmanager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        governmentaffair_recycler.setLayoutManager(linearLayoutmanager);
-        governmentaffair_title_text = (TextView) findViewById(R.id.governmentaffair_title_text);
+        partyeducation_recycler.setLayoutManager(linearLayoutmanager);
+        partyeducation_title_text = (TextView) findViewById(R.id.partyeducation_title_text);
     }
     public void getIntentData() {
         Intent intent = getIntent();
@@ -84,14 +84,12 @@ public class GovernmentAffairsActivity extends BaseActivity {
             function2Bean = new Gson().fromJson(jsonData,Function2Bean.class);
             if (function2Bean!=null){
                 if (!TextUtils.isEmpty(function2Bean.getTitle())){
-                    governmentaffair_title_text.setText(function2Bean.getTitle());
+                    partyeducation_title_text.setText(function2Bean.getTitle());
                 }
                 if (function2Bean.getData()!=null){
                     if (function2Bean.getData().size()!=0){
-
-//                        adapter = new FunctionAdapter(mcontext,function_flyborderview,function2Bean.getData());
                         adapter = new GovernmentAffairsAdapter(mcontext,function2Bean.getData());
-                        governmentaffair_recycler.setAdapter(adapter);
+                        partyeducation_recycler.setAdapter(adapter);
                     }
                 }
             }
@@ -103,7 +101,7 @@ public class GovernmentAffairsActivity extends BaseActivity {
 //    public class GovernmentAffairsAdapter extends RecyclerView.Adapter<GovernmentAffairsAdapter.GovernmentAffairsHolder>{
 //        private Context context;
 //        private List<Function2Bean.DataBean> mdatalist;
-//        private  FlyBorderView flyBorderView;
+//        private FlyBorderView flyBorderView;
 //        public GovernmentAffairsAdapter (Context context, FlyBorderView flyBorderView, List<Function2Bean.DataBean> mdatalist){
 //            this.context = context;
 //            this.mdatalist =mdatalist;
@@ -135,11 +133,11 @@ public class GovernmentAffairsActivity extends BaseActivity {
 //        public class GovernmentAffairsHolder extends RecyclerView.ViewHolder{
 //            private View mItemView;
 //            private ImageView recycler_governmentaffairs_img;
-//             public GovernmentAffairsHolder(View itemView) {
-//                 super(itemView);
-//                 mItemView = itemView;
-//                 recycler_governmentaffairs_img = (ImageView) itemView.findViewById(R.id.recycler_governmentaffairs_img);
-//             }
-//         }
+//            public GovernmentAffairsHolder(View itemView) {
+//                super(itemView);
+//                mItemView = itemView;
+//                recycler_governmentaffairs_img = (ImageView) itemView.findViewById(R.id.recycler_governmentaffairs_img);
+//            }
+//        }
 //    }
 }

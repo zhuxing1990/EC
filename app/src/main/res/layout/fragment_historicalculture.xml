@@ -4,9 +4,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/fragment_background2">
     <RelativeLayout
+        android:layout_marginTop="105dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="220dp">
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="105dp"
+     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="300dp"
         android:layout_marginRight="300dp"
         android:layout_centerHorizontal="true">
@@ -16,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:textSize="36sp"
+            android:focusable="true"
             android:textColor="@color/color_black"
             android:text="@string/historical_culture"/>
         <TextView
@@ -23,10 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:maxLines="5"
-            android:ellipsize="end"
+            android:focusable="true"
             android:layout_below="@+id/historicalculture_title_text"
-            android:text="  早在新石器时代晚期，区境即有人类繁衍生息。出土文物证明，距今5000年左右，在今安化县马路口、江南，南县北河口，赫山区邓石桥和沅江市漉湖等地，就已形成村落。进入青铜器时代后，在今桃江县马迹塘、灰山港，沅江市莲子塘以及赫山区赫山庙、龙光桥、笔架山一带，聚居村落已趋密集。
+            android:text="    早在新石器时代晚期，区境即有人类繁衍生息。出土文物证明，距今5000年左右，在今安化县马路口、江南，南县北河口，赫山区邓石桥和沅江市漉湖等地，就已形成村落。进入青铜器时代后，在今桃江县马迹塘、灰山港，沅江市莲子塘以及赫山区赫山庙、龙光桥、笔架山一带，聚居村落已趋密集。
 
     东周以前，区境属《书·禹贡》所载九州中的荆州管辖。战国时期为楚国黔中郡属地。秦属长沙郡，置益阳县，以县治位于益水（今资水）之阳而得名，是为区境置县之初。时益阳县境辖今益阳市及邵阳和娄底两市各一部分。南朝梁时置药山县（今沅江市），宋置安化县。清末，设南洲直隶厅（今南县）。其间2200多年，境内属县虽有增加，但未形成地区（府、州）级行政建置。各县沿革与隶属关系，则随朝代更换，颇多变化。
 
@@ -61,5 +70,7 @@
             android:layout_below="@+id/historicalculture_detalis_text">
 
         </RelativeLayout>
+    </RelativeLayout>
+    </ScrollView>
     </RelativeLayout>
 </RelativeLayout>

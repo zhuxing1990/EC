@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/function_background">
+    android:background="@drawable/layout_background1">
 
     <RelativeLayout
-        android:id="@+id/pap_title_relative"
+        android:id="@+id/gap_title_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -14,14 +14,14 @@
         android:layout_marginRight="90dp"
         android:layout_marginBottom="45dp">
         <ImageView
-            android:id="@+id/pap_goback"
+            android:id="@+id/gap_goback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:src="@drawable/go_left"/>
         <TextView
-            android:id="@+id/pap_title"
-            android:layout_toRightOf="@+id/pap_goback"
+            android:id="@+id/gap_title"
+            android:layout_toRightOf="@+id/gap_goback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -34,20 +34,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pap_content_relative"
+        android:id="@+id/gap_content_relative"
         android:layout_marginLeft="90dp"
         android:layout_marginRight="90dp"
-        android:layout_above="@+id/pap_down_relative"
-        android:layout_below="@+id/pap_title_relative">
+        android:layout_above="@+id/gap_down_relative"
+        android:layout_below="@+id/gap_title_relative">
             <app.com.tvrecyclerview.TvRecyclerView
-                android:id="@+id/pap_content_recycler"
+                android:id="@+id/gap_content_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 app:focusDrawable="@drawable/bg_border4"/>
     </RelativeLayout>
     <RelativeLayout
-        android:id="@+id/pap_down_relative"
+        android:id="@+id/gap_down_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

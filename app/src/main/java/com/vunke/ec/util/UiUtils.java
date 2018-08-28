@@ -10,9 +10,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -365,6 +367,7 @@ public class UiUtils {
             Configs.intent.setComponent(cn);
             Configs.intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent_putExtra(implementId);
+            intent_putjsonData(jsonData);
             context.startActivity(Configs.intent);
         }else{
             showToast("启动失败,获取本地页面失败",context);
@@ -435,5 +438,29 @@ public class UiUtils {
                     ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
         }
         return bitmap;
+    }
+
+
+    public static void queryUserInfo(Context context) {
+        String userId = "";
+        Uri localUri = Uri
+                .parse("content://com.starcor.mango.hndx.provider/deviceinfo");
+        Cursor cursor = context.getContentResolver().query(localUri,
+                null, null, null, null);
+        if (cursor == null){
+            return;
+        }
+        try {
+            if (cursor.moveToFirst()) {
+                userId = cursor.getString(cursor
+                        .getColumnIndex("user_id"));
+                WorkLog.i(TAG, "queryUserInfo: user_id:"+userId);
+                SharedPreferencesUtil.setStringValue(context,SharedPreferencesUtil.USER_ID,userId);
+            }
+//			return;
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
     }
 }

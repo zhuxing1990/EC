@@ -27,8 +27,24 @@
             android:layout_toRightOf="@id/detalis_title_img"
             android:text="@string/content_details"
             android:textColor="@color/color_white1"/>
+        <ImageView
+            android:id="@+id/details_title_godown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/godown_page"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/details_title_goup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/goup_page"
+            android:layout_marginRight="45dp"
+            android:layout_toLeftOf="@+id/details_title_godown"
+            android:visibility="invisible"/>
     </RelativeLayout>
-    <WebView
+    <com.vunke.ec.view.ScrollWebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"

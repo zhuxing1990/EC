@@ -23,10 +23,10 @@ public class VillageAffairsAdapter extends RecyclerView.Adapter<VillageAffairsAd
         public VillageAffairsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view= null;
             if (viewType == 1){
-                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_partyaffairspublicity,parent,false);
+                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_governmentaffairspublicity,parent,false);
                 VillageAffairsHolder holder = new VillageAffairsHolder(view);
             }else if (viewType == 2){
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_partyaffairspublicity2,parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_governmentaffairspublicity2,parent,false);
             }
             VillageAffairsHolder holder = new VillageAffairsHolder(view);
             holder.mItemView.setOnFocusChangeListener(new View.OnFocusChangeListener() {

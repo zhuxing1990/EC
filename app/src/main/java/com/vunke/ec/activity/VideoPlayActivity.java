@@ -76,10 +76,10 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
         GetVideoData();
         initView();
         initListener();
+        SetVideoView();
         initAlphaAnimation1();
         initAlphaAnimation2();
         initTimerOut();
-        SetVideoView();
     }
 
     /**
@@ -158,9 +158,10 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
                 mediaPlayer = null;
             }
             mediaPlayer = new MediaPlayer();
+            mediaPlayer.reset();
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             // 设置播放的视频源
-            if (videoPath.startsWith("http://")){
+            if (videoPath.startsWith("http://")||videoPath.startsWith("rtsp://")){
                 WorkLog.i(TAG, "initVideo: get videopath is network video");
                 mediaPlayer.setDataSource(mcontext, Uri.parse(videoPath));
             }else{
@@ -168,7 +169,7 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
                     File file = new File(videoPath);
                     if (!file.exists()){
                         WorkLog.i(TAG, "initVideo: get videofile not exists");
-                        showToast("获取播放视频文件失败或者文件不存在");
+                        WorkLog.i(TAG,"获取播放视频文件失败或者文件不存在");
                         finish();
                         return;
                     }else{
@@ -237,7 +238,6 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         WorkLog.i(TAG, "onDestroy: ");
-//        WatchHistoryManage.AddWatchVideo(mcontext,videoPath,infoId,currentPosition);
         stopVideo();
         if (subscribe!=null&&!subscribe.isUnsubscribed()){
             subscribe.unsubscribe();
@@ -583,9 +583,11 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
             public void onCompleted() {
 
 //                videoplay_relative.clearAnimation();
-                videoplay_relative.startAnimation(alphaAnimation1To0);
-                videoplay_play.setClickable(false);
-                clickedNum = 0;// 重置clicked计数
+                if (!isDestroyed()){
+                    videoplay_relative.startAnimation(alphaAnimation1To0);
+                    videoplay_play.setClickable(false);
+                    clickedNum = 0;// 重置clicked计数
+                }
                 this.unsubscribe();
             }
 
@@ -612,10 +614,12 @@ public class VideoPlayActivity extends BaseActivity implements View.OnClickListe
             videoplay_relative.clearAnimation();
             videoplay_relative.startAnimation(alphaAnimation0To1);
         }
-        subscribe2.unsubscribe();
-        subscribe2 = null;
-        observable = null;
-        subscriber = null;
+        if (subscribe2!=null && subscribe2.isUnsubscribed()){
+            subscribe2.unsubscribe();
+            subscribe2 = null;
+            observable = null;
+            subscriber = null;
+        }
     }
 
     private void initAlphaAnimation1() {
